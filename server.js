@@ -26,10 +26,11 @@ const server = http.createServer((req, res) => {
       // We're done parsing the entire request
       const parsedRequestBody = Buffer.concat(requestBody).toString();
       const message = parsedRequestBody.split('=')[1];
-      fs.writeFileSync('message.txt', message);
-      res.statusCode = 302;
-      res.setHeader('Location', '/');
-      res.end();
+      fs.writeFile('message.txt', message, (err) => {
+        res.statusCode = 302;
+        res.setHeader('Location', '/');
+        res.end();
+      });
     });
   }
 
