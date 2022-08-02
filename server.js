@@ -1,8 +1,3 @@
-// The incoming request is sent as a stream of data by default in node.js
-// That means the request is read by node in chunks until the full request is fullt parsed
-// We can start working on these chunks before the whole request arrives, that is the point of the stream
-// In order to work with these chunks of data, we use something called a buffer
-
 const http = require('http');
 const fs = require('fs');
 
